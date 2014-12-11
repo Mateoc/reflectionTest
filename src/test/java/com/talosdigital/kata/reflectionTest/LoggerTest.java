@@ -1,7 +1,6 @@
 package com.talosdigital.kata.reflectionTest;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class LoggerTest{
@@ -9,7 +8,7 @@ public class LoggerTest{
 	@Test
 	public void primitiveTest() throws IllegalArgumentException, IllegalAccessException  {
 		int i = 10;
-		String result = Logger.getObjectInfo(i);
+		String result = ObjectLogger.getObjectInfo(i);
 		String expected = "Type: java.lang.Integer\n\tValue : 10\n";
 		assertEquals(expected, result);
 	}
@@ -17,7 +16,7 @@ public class LoggerTest{
 	@Test
 	public void arrayTest() throws IllegalArgumentException, IllegalAccessException {
 		Integer[] i = new Integer[]{0,1};
-		String result = Logger.getObjectInfo(i);
+		String result = ObjectLogger.getObjectInfo(i);
 		String expected = 
 				"Type: [Ljava.lang.Integer;\n"
 				+ "\t[0]\n"
@@ -32,7 +31,7 @@ public class LoggerTest{
 	@Test
 	public void matrixTest() throws IllegalArgumentException, IllegalAccessException {
 		Integer[][] i = new Integer[][]{new Integer[]{0,1},new Integer[]{2,3}};
-		String result = Logger.getObjectInfo(i);
+		String result = ObjectLogger.getObjectInfo(i);
 		String expected = 
 				"Type: [[Ljava.lang.Integer;\n"
 				+ "\t[0]\n"
@@ -57,7 +56,7 @@ public class LoggerTest{
 	@Test
 	public void objectTest() throws IllegalArgumentException, IllegalAccessException {
 		ClassRoom cr = new ClassRoom();
-		String result = Logger.getObjectInfo(cr);
+		String result = ObjectLogger.getObjectInfo(cr);
 		String expected ="Type: com.talosdigital.kata.reflectionTest.ClassRoom\n"
 				+ "\tAttributes: \n"
 				+ "\t\tstudents\n"
@@ -99,7 +98,5 @@ public class LoggerTest{
 				+ "\t\t\t\tType: java.lang.Integer\n"
 				+ "\t\t\t\t\tValue : 25\n";
 		assertEquals(expected,result);
-	}
-	
-
+	}	
 }

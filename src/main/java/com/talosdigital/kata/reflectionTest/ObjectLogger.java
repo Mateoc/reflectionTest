@@ -4,7 +4,10 @@ import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Logger {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class ObjectLogger {
 	
 	private static final Set<Class<?>> WRAPPER_TYPES = getWrapperTypes();
 	/** 
@@ -50,8 +53,10 @@ public class Logger {
 	 * @throws IllegalArgumentException 
 	 */
 	public static String getObjectInfo(Object object) throws IllegalArgumentException, IllegalAccessException{
+		final Logger logger = LogManager.getLogger("fileLogger");
 		//get the class of the object
 		String data = getAtributes(object, "");
+		logger.debug(data);
 		return data;
 	}
 	/**
@@ -107,5 +112,7 @@ public class Logger {
 			}
 		}
 		return data.toString();
+		
+		
 	}
 }
