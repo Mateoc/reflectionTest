@@ -1,7 +1,5 @@
 package com.talosdigital.kata.reflectionTest;
 
-import java.util.Random;
-
 public class Person {
 	public String name;
 	public String lastName;
