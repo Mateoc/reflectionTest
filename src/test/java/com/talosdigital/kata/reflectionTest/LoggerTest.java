@@ -19,10 +19,6 @@ public class LoggerTest{
 	
 	@Test
 	public void test() throws IllegalArgumentException, IllegalAccessException {
-		Thread t = new Thread();
-		int[][] i  = new int[2][2];
-		String a =new String("asd");
-		Person p =new Person(0);
 		ClassRoom cr = new ClassRoom();
 		String result = Logger.getObjectInfo(cr);
 		String expected ="Type: com.talosdigital.kata.reflectionTest.ClassRoom\n"
