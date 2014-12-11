@@ -55,9 +55,10 @@ public class Logger {
 		return data;
 	}
 	/**
-	 * Called recursively to analyze a object and attributes of that object 
+	 * Called recursively to analyze a object and attributes of that object
 	 * @param object
 	 * the object to analyze
+	 * It does not allow array of primitives, if required pass a array of the primitive wrapper (ei int[] -> Integer[])
 	 * @param initialIndentation
 	 * A string containing as many tabs ("\t") as deep in recursion we are
 	 * @return

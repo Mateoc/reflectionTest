@@ -9,16 +9,55 @@ import org.junit.Test;
 public class LoggerTest{
 	
 	@Test
-	public void PrimitiveTest() throws IllegalArgumentException, IllegalAccessException  {
+	public void primitiveTest() throws IllegalArgumentException, IllegalAccessException  {
 		int i = 10;
 		String result = Logger.getObjectInfo(i);
 		String expected = "Type: java.lang.Integer\n\tValue : 10\n";
-		System.out.println(result);
 		assertEquals(expected, result);
 	}
 	
 	@Test
-	public void test() throws IllegalArgumentException, IllegalAccessException {
+	public void arrayTest() throws IllegalArgumentException, IllegalAccessException {
+		Integer[] i = new Integer[]{0,1};
+		String result = Logger.getObjectInfo(i);
+		String expected = 
+				"Type: [Ljava.lang.Integer;\n"
+				+ "\t[0]\n"
+				+ "\tType: java.lang.Integer\n"
+				+ "\t\tValue : 0\n"
+				+ "\t[1]\n"
+				+ "\tType: java.lang.Integer\n"
+				+ "\t\tValue : 1\n";
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void matrixTest() throws IllegalArgumentException, IllegalAccessException {
+		Integer[][] i = new Integer[][]{new Integer[]{0,1},new Integer[]{2,3}};
+		String result = Logger.getObjectInfo(i);
+		String expected = 
+				"Type: [[Ljava.lang.Integer;\n"
+				+ "\t[0]\n"
+				+ "\tType: [Ljava.lang.Integer;\n"
+				+ "\t\t[0]\n"
+				+ "\t\tType: java.lang.Integer\n"
+				+ "\t\t\tValue : 0\n"
+				+ "\t\t[1]\n"
+				+ "\t\tType: java.lang.Integer\n"
+				+ "\t\t\tValue : 1\n"
+				+ "\t[1]\n"
+				+ "\tType: [Ljava.lang.Integer;\n"
+				+ "\t\t[0]\n"
+				+ "\t\tType: java.lang.Integer\n"
+				+ "\t\t\tValue : 2\n"
+				+ "\t\t[1]\n"
+				+ "\t\tType: java.lang.Integer\n"
+				+ "\t\t\tValue : 3\n";
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void objectTest() throws IllegalArgumentException, IllegalAccessException {
 		ClassRoom cr = new ClassRoom();
 		String result = Logger.getObjectInfo(cr);
 		String expected ="Type: com.talosdigital.kata.reflectionTest.ClassRoom\n"
